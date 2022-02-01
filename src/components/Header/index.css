@@ -1,0 +1,22 @@
+header {
+  background-color: rgb(26, 131, 158);
+  margin: 0;
+  padding: 8px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation-links a {
+  padding: 0 20px;
+  color: rgb(240, 240, 240);
+}
+
+.navigation-links {
+  display: flex;
+  align-items: center;
+}
+
+header h1 {
+  color: rgb(240, 240, 240);
+}

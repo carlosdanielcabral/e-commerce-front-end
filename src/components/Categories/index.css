@@ -1,0 +1,26 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start!important;
+  border-right: 1px solid rgb(200, 200, 200);
+}
+
+.category {
+  background-color: inherit;
+  margin: 5px;
+  border: none;
+  /* border-left: 8px solid rgb(239, 200, 139); */
+  font-size: 16px;
+  text-align: start!important;
+  cursor: pointer;
+}
+
+.category:hover {
+  color: rgb(139, 100, 39);
+  /* border-left: 8px solid rgb(219, 190, 129); */
+}
+
+.category.selected {
+  color: rgb(139, 100, 39);
+  /* border-left: 8px solid rgb(219, 190, 129); */
+}

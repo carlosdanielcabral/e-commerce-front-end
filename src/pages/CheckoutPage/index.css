@@ -1,0 +1,43 @@
+.purchase-summary {
+  display: flex;
+  width: 90%;
+  overflow-x: auto;
+}
+
+.purchase-summary .product-card {
+  min-width: 250px;
+  height: 200px;
+  text-align: center;
+}
+
+.checkout-page .total {
+  font-weight: 300;
+}
+
+.checkout-page form {
+  margin: 50px 0;
+}
+
+.checkout-page form, .checkout-page form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.checkout-page form input {
+  width: 400px;
+  padding: 10px;
+  margin: 10px 0 25px 0;
+  border: 1px solid rgb(200, 200, 200);
+}
+
+.checkout-page form fieldset {
+  padding: 40px 0;
+  border: none;
+}
+
+.checkout-page form legend {
+  font-size: 20px;
+  color: rgb(50, 50, 50);
+  font-weight: 300;
+}

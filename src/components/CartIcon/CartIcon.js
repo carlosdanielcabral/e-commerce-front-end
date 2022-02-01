@@ -1,0 +1,34 @@
+import React from 'react';
+import { Redirect } from 'react-router';
+import './index.css';
+
+class CartIcon extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      redirect: false,
+    };
+  }
+
+  redirect = () => {
+    this.setState({ redirect: true });
+  }
+
+  render() {
+    const { redirect } = this.state;
+    if (redirect) return <Redirect to="/shopping-cart" />;
+    return (
+      <button
+        className="cart-icon"
+        type="button"
+        onClick={ this.redirect }
+      >
+        <h2 className="material-icons">shopping_cart</h2>
+      </button>
+
+    );
+  }
+}
+
+export default CartIcon;
