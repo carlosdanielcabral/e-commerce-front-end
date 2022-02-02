@@ -41,3 +41,19 @@
   color: rgb(50, 50, 50);
   font-weight: 300;
 }
+
+@media screen and (max-width: 900px) {
+  .purchase-summary {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .checkout-page form input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0 25px 0;
+    border: 1px solid rgb(200, 200, 200);
+  }
+  
+}

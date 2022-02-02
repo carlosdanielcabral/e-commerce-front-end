@@ -19,12 +19,6 @@ a {
   color: rgb(50, 50, 50);
 }
 
-.home-page .container {
-  display: flex!important;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
 .container {
   padding: 30px!important;
   margin: 0px!important;

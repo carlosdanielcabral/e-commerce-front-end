@@ -67,3 +67,9 @@ label input:checked ~ span {
   background-color: rgba(0, 125, 184, 0.5);
   transform: scale(1.1);
 }
+
+@media only screen and (max-width: 900px) {
+  .gallery-container {
+    width: 90%;
+  }
+}

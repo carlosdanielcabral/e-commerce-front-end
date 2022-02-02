@@ -57,3 +57,18 @@
   background-color: rgb(91, 140, 90);
   color: white;
 }
+
+@media screen and (max-width: 900px) {
+  .product-card {
+    align-items: center;
+    background-color: white;
+    box-shadow: 2px 2px 5px 2px rgb(210, 210, 210);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    justify-content: space-between;
+    margin: 15px;
+    width: 300px;
+  }  
+}

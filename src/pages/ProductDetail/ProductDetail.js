@@ -28,9 +28,21 @@ class ProductDetail extends React.Component {
     document.title = product.title;
   }
 
+  addToCart = ({ target }) => {
+    const { id } = target;
+
+    const products = [localStorage.getItem('shoppingCart')];
+    if (products[0]) {
+      const product = [...products, id];
+      localStorage.setItem('shoppingCart', product);
+    } else {
+      localStorage.setItem('shoppingCart', id);
+    }
+  }
+
   render() {
     const { product } = this.state;
-    const { title, price, pictures } = product;
+    const { id, title, price, pictures } = product;
     return (
       <>
         <Header />
@@ -50,6 +62,13 @@ class ProductDetail extends React.Component {
                 { price && (
                   price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })) }
               </p>
+              <button
+                type="button"
+                id={ id }
+                onClick={ this.addToCart }
+              >
+                Adicionar ao carrinho
+              </button>
             </div>
           </div>
 
