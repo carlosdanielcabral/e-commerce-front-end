@@ -60,6 +60,14 @@ class Home extends React.Component {
     this.setState({ products, hasSearch: true });
   }
 
+  clearResults = () => {
+    this.setState({ products: [] });
+    const categories = document.getElementsByClassName('category');
+    const selected = Array.from(categories).find((category) => (
+      category.classList.contains('selected')));
+    if (selected !== undefined) selected.classList.remove('selected');
+  }
+
   render() {
     const { hasSearch, products } = this.state;
     return (
@@ -67,7 +75,7 @@ class Home extends React.Component {
         <Header />
         <div className="container">
           <div className="right">
-            <Search searchProducts={ this.searchProducts } />
+            <Search searchProducts={ this.searchProducts } clearResults={ this.clearResults } />
             {
               hasSearch && (
                 <ProductsContainer products={ products } />

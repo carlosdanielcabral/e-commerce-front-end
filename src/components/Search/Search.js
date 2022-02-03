@@ -28,7 +28,7 @@ class Search extends React.Component {
 
   render() {
     const { inputValue, redirect } = this.state;
-    const { searchProducts } = this.props;
+    const { searchProducts, clearResults } = this.props;
     if (redirect) return <Redirect to="/shopping-cart" />;
     return (
       <div className="search">
@@ -48,6 +48,13 @@ class Search extends React.Component {
           >
             Pesquisar
           </button>
+          <button
+            type="button"
+            onClick={ clearResults }
+            className="clear-results"
+          >
+            Limpar
+          </button>
         </form>
 
         <h2 data-testid="home-initial-message">
@@ -60,6 +67,7 @@ class Search extends React.Component {
 
 Search.propTypes = {
   searchProducts: PropTypes.func.isRequired,
+  clearResults: PropTypes.func.isRequired,
 };
 
 export default Search;
