@@ -13,7 +13,7 @@ Este projeto foi baseado em um dos projetos avaliativos da Trybe, originalmente 
 npm install
 ```
 
-## Rodando o projeto 
+## Executando a aplicação
 ```bash
 npm start
 ```
