@@ -1,0 +1,101 @@
+.authentication-page {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.authentication-page .left, .right {
+  height: 100vh;
+}
+
+.authentication-page .left {
+  background: url('../../assets/images/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 60vw;
+}
+
+.authentication-page .right {
+  width: 40vw;
+}
+
+.authentication-page header {
+  background-color: #1b3244;
+  box-shadow: 1px 1px 5px 1px rgb(40, 40, 40);
+  color: white;
+  height: 60px;
+  padding: 5px 20px!important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+}
+
+/* .left img {
+  width: 100%;
+} */
+
+.login {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.login input {
+  width: 100px;
+}
+
+.login button {
+  background-color: rgb(16, 88, 54);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  width: 70px;
+}
+
+.authentication-page input {
+  padding: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 4px;
+}
+
+.authentication-page button {
+  padding: 5px;
+}
+
+.authentication-page h2 {
+  font-size: 20px;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.register, .register form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register {
+  padding: 90px 20px;
+}
+
+.register input {
+  margin: auto;
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+.register button {
+  background-color: rgb(20, 62, 90);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+}

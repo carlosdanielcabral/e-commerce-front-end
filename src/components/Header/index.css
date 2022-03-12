@@ -1,10 +1,75 @@
 header {
-  background-color: rgb(26, 131, 158);
+  background-color: rgb(14, 29, 32);
   margin: 0;
-  padding: 8px 30px;
+  padding: 5px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+header section {
+  align-items: center;
+  display: flex;
+}
+
+.sidebar {
+  background-color: rgb(14, 29, 32);
+  box-shadow: 1px 1px 5px 1px rgb(20, 20, 20);
+  height: 100%;
+  left: -100vw;
+  position: absolute;
+  top: 0;
+  transition: 300ms;
+  width: 300px;
+}
+
+.sidebar-container button {
+  background-color: inherit;
+  border: none;
+}
+
+.sidebar-container button:focus + .sidebar {
+  left: 0;
+}
+
+.profile-image {
+  align-items: center;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid white;
+  border-radius: 50%;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  margin: 30px auto;
+  width: 100px;
+}
+
+.sidebar ul {
+  color: white;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  align-items: center;
+  border-top: 0.05px solid rgb(32, 49, 52);
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 15px 10px;
+  width: 80%;
+}
+
+.sidebar li svg {
+  padding: 0 10px;
+}
+
+.sidebar li:last-child {
+  border-bottom: 1px solid rgb(32, 49, 52);
+}
+
+h1 {
+  padding-left: 20px;
 }
 
 .navigation-links a {

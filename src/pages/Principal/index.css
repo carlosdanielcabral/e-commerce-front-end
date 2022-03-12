@@ -1,0 +1,26 @@
+body {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+.principal-page-categories {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  width: 100vw;
+}
+
+.principal-page-categories h2 {
+  display: block;
+  font-weight: 300;
+  margin: 50px auto;
+}
+
+.products-skeleton {
+  display: flex;
+}
+
+.principal-page-category {
+  margin-bottom: 80px;
+}
