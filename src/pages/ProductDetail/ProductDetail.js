@@ -1,34 +1,32 @@
 /* eslint-disable react/jsx-max-depth */
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import AppContext from '../../context/AppContext';
 import { getProductById } from '../../services/api';
 import Header from '../../components/Header';
 import Gallery from '../../components/Gallery';
 import './index.css';
 
-class ProductDetail extends React.Component {
-  constructor() {
-    super();
+const ProductDetail = () => {
+  const { darkMode } = useContext(AppContext);
+  const { productId } = useParams();
+  const [hasProduct, setHasProduct] = useState(false);
+  const [product, setProduct] = useState({});
 
-    this.getProduct = this.getProduct.bind(this);
+  useEffect(() => {
+    const getProduct = async () => {
+      const product = await getProductById(productId);
+      setProduct(product);
+      setHasProduct(true);
+      document.title = product.title;
+    }
 
-    this.state = {
-      product: {},
-    };
-  }
+    getProduct();
+  }, [setProduct]);
 
-  componentDidMount() {
-    this.getProduct();
-  }
 
-  async getProduct() {
-    const { match: { params: { productId } } } = this.props;
-    const product = await getProductById(productId);
-    this.setState({ product });
-    document.title = product.title;
-  }
-
-  addToCart = ({ target }) => {
+  const addToCart = ({ target }) => {
     const { id } = target;
 
     const products = [localStorage.getItem('shoppingCart')];
@@ -39,38 +37,43 @@ class ProductDetail extends React.Component {
       localStorage.setItem('shoppingCart', id);
     }
   }
+  
+  return (
+    <>
+      <Header />
+      <div className={ `product-detail-page container ${darkMode && 'darkmode'}` }>
+        {
+          !hasProduct
+            ? 'Carregando...'
+            : (
+              <>
+                <h2>
+                  { product.title }
+                </h2>
 
-  render() {
-    const { product } = this.state;
-    const { id, title, price, pictures } = product;
-    return (
-      <>
-        <Header />
-        <div className="product-detail-page container">
-          <h2>
-            { title }
-          </h2>
+                <div className="container-flex">
+                  <div className="product-image">
+                    { product.pictures && <Gallery pictures={ product.pictures } /> }
+                  </div>
 
-          <div className="container-flex">
-            <div className="product-image">
-              { pictures && <Gallery pictures={ pictures } /> }
-            </div>
-
-            <div className="product-data">
-              <h3>Informações</h3>
-              <p className="price">
-                { price && (
-                  price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })) }
-              </p>
-              <button
-                type="button"
-                id={ id }
-                onClick={ this.addToCart }
-              >
-                Adicionar ao carrinho
-              </button>
-            </div>
-          </div>
+                  <div className="product-data">
+                    <h3>Informações</h3>
+                    <p className="price">
+                      { product.price && (
+                        product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })) }
+                    </p>
+                    <button
+                      type="button"
+                      id={ product.id }
+                      onClick={ addToCart }
+                    >
+                      Adicionar ao carrinho
+                    </button>
+                  </div>
+                </div>
+              </>
+            )
+        }
 
           {/* <h3>Avaliações do produto</h3>
 
@@ -119,10 +122,9 @@ class ProductDetail extends React.Component {
               </label>
             </div>
           </form> */}
-        </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
 }
 
 ProductDetail.propTypes = {

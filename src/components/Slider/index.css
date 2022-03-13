@@ -1,7 +1,6 @@
 .principal-page .slider {
   box-sizing: border-box;
   display: flex;
-  margin: auto;
   overflow-x: auto;
   width: 90vw;
 }
@@ -23,9 +22,16 @@
 }
 
 .principal-page .product {
-  height: 250px;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 5px;
+  height: 255px;
   margin: 10px;
   width: 230px;
+}
+
+.principal-page .product.darkmode {
+  background-color: rgb(50, 50, 50);
+  border: none;
 }
 
 .principal-page .product-header {
@@ -40,11 +46,15 @@
 
 .principal-page .product-title {
   padding: 0 5px;
-  height: 60px;
+  height: 65px;
   overflow-y: hidden;
 }
 
 .principal-page .product h3 {
   font-weight: 300;
-  padding: 0;
+  padding: 5px;
+}
+
+.principal-page .product.darkmode h3 {
+  color: white;
 }

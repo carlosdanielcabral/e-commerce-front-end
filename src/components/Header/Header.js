@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineMenu, AiFillHome } from 'react-icons/ai';
-import { BsFillPersonFill, BsFillGearFill, BsSearch } from 'react-icons/bs';
+import { BsFillPersonFill, BsFillGearFill, BsFillMoonFill,
+  BsFillSunFill } from 'react-icons/bs';
+import AppContext from '../../context/AppContext';
+import Search from '../Search';
 import CartIcon from '../CartIcon';
 import './index.css';
 
 const style = { color: 'white', fontSize: '30px' };
-const profileStyle = { color: 'rgb(14, 29, 32)', fontSize: '80px' };
+const profileStyle = { color: 'white', fontSize: '40px' };
 const gearStyle = { color: 'white', fontSize: '20px' }
 const Header = () => {
+  const { darkMode, setDarkMode } = useContext(AppContext); 
   return (
     <header>
       <section>
-        <div className="sidebar-container">
+        {/* <div className="sidebar-container">
           <button type="button">
             <AiOutlineMenu style={ style }/>
           </button>
@@ -36,21 +40,38 @@ const Header = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
+        <section className="profile">
+          <BsFillPersonFill style={ profileStyle } />
+        </section>
+
+        <section className="darkmode">
+          <button
+            type="button"
+            onClick={ () => setDarkMode(!darkMode) }
+          >
+            {
+              darkMode
+                ? <BsFillMoonFill />
+                : <BsFillSunFill />
+            }
+          </button>
+        </section>
+        <section className="logo">
+          <h1>E-commerce</h1>
+        </section>
       </section>
 
-      <section className="logo">
-        <h1>E-commerce</h1>
-      </section>
 
       <nav className="navigation-links">
+        <Search />
         <Link to="/">
           <AiFillHome style={ gearStyle } />
         </Link>
 
-        <Link to="/search-products">
+        {/* <Link to="/search-products">
           <BsSearch />
-        </Link>
+        </Link> */}
 
         <CartIcon />
       </nav>

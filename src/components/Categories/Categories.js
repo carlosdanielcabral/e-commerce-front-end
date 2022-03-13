@@ -9,7 +9,8 @@ const Categories = () => {
     setProducts,
     setHasSearch,
     query,
-    setCategory
+    setCategory,
+    darkMode,
   } = useContext(AppContext);
   const [categories, setCategories] = useState([]);
 
@@ -40,7 +41,7 @@ const Categories = () => {
   }
 
   return (
-    <aside className="categories">
+    <aside className={ `categories ${darkMode && 'darkmode'}` }>
       {
         categories.map(({ name, id }) => (
           <button

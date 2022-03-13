@@ -1,7 +1,15 @@
 import React from 'react';
+import './index.css';
 
 const Footer = () => (
-  <h4>Footer</h4>
+  <footer>
+    <p>
+      Site construído em React
+    </p>
+    <p>
+      Carlos Daniel Cabral
+    </p>
+  </footer>
 )
 
 export default Footer;

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import AppContext from '../../context/AppContext';
 import { Link } from 'react-router-dom';
 import './index.css';
 
 const ProductCard = ({ id, title, image, price }) => {
+  const { darkMode } = useContext(AppContext);
   const addToCart = ({ target }) => {
     const { id } = target;
 
@@ -17,7 +19,7 @@ const ProductCard = ({ id, title, image, price }) => {
   }
 
   return (
-    <div className="product-card">
+    <div className={ `product-card ${darkMode && 'darkmode'}` }>
       <Link to={ `/product/${id}` }>
         <div>
           <div className="image">
@@ -36,13 +38,13 @@ const ProductCard = ({ id, title, image, price }) => {
 
         </div>
       </Link>
-      <button
+      {/* <button
         type="button"
         id={ id }
         onClick={ addToCart }
       >
         Adicionar ao carrinho
-      </button>
+      </button> */}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import AppContext from './AppContext';
 
 const Provider = ({ children }) => {
   const [category, setCategory] = useState('')
+  const [darkMode, setDarkMode] = useState(false);
   const [hasSearch, setHasSearch] = useState(false);
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState('');
@@ -10,6 +11,8 @@ const Provider = ({ children }) => {
   const context = {
     category,
     setCategory,
+    darkMode,
+    setDarkMode,
     hasSearch,
     setHasSearch,
     products,

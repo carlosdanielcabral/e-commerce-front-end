@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
 import './index.css';
 
 const Slider = ({ products }) => {
+  const { darkMode } = useContext(AppContext);
   return (
     <div className="slider">
       {
         products.map((product) => {
           return (
-            <div className="product">
+            <div className={ `product ${darkMode && 'darkmode'}` }>
               <Link to={ `/product/${product.id}` } >
                 <div className="product-header">
                   <img src={ product.thumbnail } alt="image" />

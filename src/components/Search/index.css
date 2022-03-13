@@ -10,10 +10,10 @@
   border: 1px solid rgb(210, 210, 210);
   border-radius: 20px;
   padding: 10px;
-  width: 60%;
+  width: 300px;
 }
 
-.search button {
+/* .search button {
   border: 1px solid rgb(91, 140, 90);
   background: inherit;
   border-radius: 3px;
@@ -21,6 +21,11 @@
   transition: 300ms;
   font-size: 15px;
   width: 90px;
+} */
+
+.search button {
+  background-color: inherit;
+  border: none;
 }
 
 .search button.clear-results {
@@ -34,10 +39,10 @@
   color: white;
 }
 
-.search form button:hover {
+/* .search form button:hover {
   background-color: rgb(91, 140, 90);
   color: white;
-}
+} */
 
 .search h2 {
   font-weight: 300;

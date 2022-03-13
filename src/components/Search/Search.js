@@ -1,7 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { BsSearch } from 'react-icons/bs';
 import AppContext from '../../context/AppContext';
 import { getProductsByQuery, getProductsFromCategoryAndQuery } from '../../services/api';
 import './index.css';
+
+const style = { color: 'white', fontSize: '20px' };
 
 const Search = () => {
   const {
@@ -11,6 +15,8 @@ const Search = () => {
     query,
     setQuery,
   } = useContext(AppContext);
+
+  const [redirect, setRedirect] = useState(false);
 
   const searchProducts = async (e) => {
     e.preventDefault();
@@ -22,6 +28,7 @@ const Search = () => {
     }
     setProducts(data.results);
     setHasSearch(true);
+    setRedirect(true);
   }
 
   const clearResults = () => setProducts([]);
@@ -41,20 +48,20 @@ const Search = () => {
           type="submit"
           onClick={ searchProducts }
         >
-          Pesquisar
+          <BsSearch style={ style } />
         </button>
-        <button
+        {/* <button
           type="button"
           onClick={ clearResults }
           className="clear-results"
         >
           Limpar
-        </button>
+        </button> */}
       </form>
-
-      <h2 data-testid="home-initial-message">
+      { redirect && <Redirect to="/search-products" /> }
+      {/* <h2 data-testid="home-initial-message">
         Digite algum termo de pesquisa ou escolha uma categoria.
-      </h2>
+      </h2> */}
     </div>
   );
 }

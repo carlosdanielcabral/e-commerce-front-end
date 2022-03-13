@@ -3,20 +3,18 @@ import AppContext from '../../context/AppContext';
 import Categories from '../../components/Categories';
 import Header from '../../components/Header/Header';
 import ProductsContainer from '../../components/ProductsContainer';
-import Search from '../../components/Search';
 import './index.css';
 
 const Home = () => {
-  const { hasSearch } = useContext(AppContext);
+  const { hasSearch, darkMode } = useContext(AppContext);
 
   document.title = 'E-commerce | Home';
 
   return (
-    <div className="home-page">
+    <div className={ `home-page ${darkMode && 'darkmode'}` }>
       <Header />
       <div className="container">
         <div className="right">
-          <Search />
           {
             hasSearch && (
               <ProductsContainer />

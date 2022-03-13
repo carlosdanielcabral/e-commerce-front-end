@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import AppContext from '../../context/AppContext';
 import { getProductsByCategory } from '../../services/api';
 import Header from '../../components/Header';
 import ProductSkeleton from '../../components/ProductSkeleton';
@@ -8,6 +9,7 @@ import Footer from '../../components/Footer';
 import './index.css';
 
 const Principal = () => {
+  const { darkMode } = useContext(AppContext);
   const [cars, setCars] = useState([]);
   const [personalCare, setPersonalCare] = useState([]);
   const [smartphones, setSmartphones] = useState([]);
@@ -32,7 +34,7 @@ const Principal = () => {
   }, [setCars, setPersonalCare, setSmartphones,setHasProducts]);
 
   return (
-    <div className="principal-page">
+    <div className={ `principal-page ${darkMode && 'darkmode'}`}>
       <Header />
 
       <div className="principal-page-categories">
