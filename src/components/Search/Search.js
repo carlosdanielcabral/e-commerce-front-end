@@ -5,7 +5,7 @@ import AppContext from '../../context/AppContext';
 import { getProductsByQuery, getProductsFromCategoryAndQuery } from '../../services/api';
 import './index.css';
 
-const style = { color: 'white', fontSize: '20px' };
+const style = { color: 'rgb(150, 150, 150)', fontSize: '20px' };
 
 const Search = () => {
   const {
@@ -31,25 +31,25 @@ const Search = () => {
     setRedirect(true);
   }
 
-  const clearResults = () => setProducts([]);
-
   return (
     <div className="search">
       <form>
-        <input
-          type="text"
-          value={ query }
-          name="inputValue"
-          placeholder="Digite aqui"
-          onChange={ (e) => setQuery(e.target.value) }
-        />
+        <div className="input-button-container">
+          <input
+            type="text"
+            value={ query }
+            name="inputValue"
+            placeholder="Digite aqui"
+            onChange={ (e) => setQuery(e.target.value) }
+          />
 
-        <button
-          type="submit"
-          onClick={ searchProducts }
-        >
-          <BsSearch style={ style } />
-        </button>
+          <button
+            type="submit"
+            onClick={ searchProducts }
+          >
+            <BsSearch style={ style } className="search-icon" />
+          </button>
+        </div>
         {/* <button
           type="button"
           onClick={ clearResults }

@@ -12,6 +12,7 @@ const App = () => (
   <Provider>
     <Switch>
       <Route exact path="/" component={ Principal } />
+      <Route path="/authentication/:action" component={ Authentication } />
       <Route exact path="/search-products" component={ Home } />
       <Route path="/product/:productId" component={ ProductDetail } />
       <Route path="/shopping-cart" component={ ShoppingCart } />

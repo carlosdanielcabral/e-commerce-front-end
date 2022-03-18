@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import { getCategories, getProductsByCategory,
   getProductsFromCategoryAndQuery } from '../../services/api';
@@ -13,6 +14,8 @@ const Categories = () => {
     darkMode,
   } = useContext(AppContext);
   const [categories, setCategories] = useState([]);
+  const { push } = useHistory();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const getCategory = async () => {
@@ -44,16 +47,34 @@ const Categories = () => {
     <aside className={ `categories ${darkMode && 'darkmode'}` }>
       {
         categories.map(({ name, id }) => (
-          <button
-            type="button"
-            key={ id }
-            data-testid="category"
-            className={ `category` }
-            id={ id }
-            onClick={ selectCategory }
-          >
-            {name}
-          </button>
+          pathname.includes('search')
+            ? (
+              <button
+                type="button"
+                key={ id }
+                data-testid="category"
+                className={ `category` }
+                id={ id }
+                onClick={ selectCategory }
+              >
+                {name}
+              </button>
+            )
+            : (
+              <button
+                type="button"
+                key={ id }
+                data-testid="category"
+                className={ `category` }
+                id={ id }
+                onClick={ (e) => {
+                  selectCategory(e) 
+                  push('/search-products')
+                } }
+              >
+                {name}
+              </button>
+            )
         ))
       }
     </aside>

@@ -23,7 +23,7 @@ const ProductDetail = () => {
     }
 
     getProduct();
-  }, [setProduct]);
+  }, [setProduct, productId]);
 
 
   const addToCart = ({ target }) => {

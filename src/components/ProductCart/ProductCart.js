@@ -6,17 +6,6 @@ import './index.css';
 
 const ProductCard = ({ id, title, image, price }) => {
   const { darkMode } = useContext(AppContext);
-  const addToCart = ({ target }) => {
-    const { id } = target;
-
-    const products = [localStorage.getItem('shoppingCart')];
-    if (products[0]) {
-      const product = [...products, id];
-      localStorage.setItem('shoppingCart', product);
-    } else {
-      localStorage.setItem('shoppingCart', id);
-    }
-  }
 
   return (
     <div className={ `product-card ${darkMode && 'darkmode'}` }>

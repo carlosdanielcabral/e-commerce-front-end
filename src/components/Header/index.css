@@ -1,5 +1,6 @@
 header {
   background-color: rgb(116, 41, 41);
+  box-shadow: 1px 1px 5px rgb(80, 80, 80);
   margin: 0;
   padding: 10px 30px;
   display: flex;
@@ -17,6 +18,36 @@ header section {
   border: none;
   color: white;
   font-size: 20px;
+}
+
+header .profile {
+  display: inline-block;
+  position: relative;
+}
+
+header .profile button {
+  align-items: center;
+  background-color: inherit;
+  border: none;
+  display: flex;
+  padding-right: 20px;
+}
+
+.profile button h3 {
+  color: white;
+}
+
+.profile-options {
+  background-color: rgb(215, 215, 215, 0.8);
+  display: none;
+  height: 100px;
+  position: absolute;
+  min-width: 200px;
+  z-index: 1;
+}
+
+.profile:hover .profile-options {
+  display: block;
 }
 
 .sidebar {

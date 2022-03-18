@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineMenu, AiFillHome } from 'react-icons/ai';
-import { BsFillPersonFill, BsFillGearFill, BsFillMoonFill,
+import { AiFillHome } from 'react-icons/ai';
+import { BsFillPersonFill, BsFillMoonFill,
   BsFillSunFill } from 'react-icons/bs';
 import AppContext from '../../context/AppContext';
 import Search from '../Search';
 import CartIcon from '../CartIcon';
 import './index.css';
 
-const style = { color: 'white', fontSize: '30px' };
 const profileStyle = { color: 'white', fontSize: '40px' };
 const gearStyle = { color: 'white', fontSize: '20px' }
 const Header = () => {
@@ -42,7 +41,20 @@ const Header = () => {
           </div>
         </div> */}
         <section className="profile">
-          <BsFillPersonFill style={ profileStyle } />
+          <button type="button">
+            <BsFillPersonFill style={ profileStyle } />
+            <h3>Entrar</h3>
+          </button>
+
+          <div className="profile-options">
+            <Link to="/authentication/login">
+              Fazer Login
+            </Link>
+
+            <Link to="/authentication/register">
+              Cadastre-se
+            </Link>       
+          </div>
         </section>
 
         <section className="darkmode">

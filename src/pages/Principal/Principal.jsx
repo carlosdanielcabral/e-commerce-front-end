@@ -17,7 +17,7 @@ const Principal = () => {
   const productsSkeleton = [];
 
   for (let i = 0; i < 5; i += 1) {
-    productsSkeleton.push(<ProductSkeleton />);
+    productsSkeleton.push(<ProductSkeleton key={ `product-skeleton-${i}` }/>);
   }
   
   useEffect(() => {

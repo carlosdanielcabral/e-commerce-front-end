@@ -10,10 +10,10 @@ const Slider = ({ products }) => {
       {
         products.map((product) => {
           return (
-            <div className={ `product ${darkMode && 'darkmode'}` }>
+            <div className={ `product ${darkMode && 'darkmode'}` } key={ product.id }>
               <Link to={ `/product/${product.id}` } >
                 <div className="product-header">
-                  <img src={ product.thumbnail } alt="image" />
+                  <img src={ product.thumbnail } alt={ product.title } />
                 </div>
 
                 <div className="product-title">
