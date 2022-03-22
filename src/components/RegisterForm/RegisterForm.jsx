@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import AppContext from '../../context/AppContext';
 import { Redirect } from 'react-router-dom';
-import { getUser, saveUser } from '../../services/userFunctions';
+import { getUser, saveUser, saveLoggedUser } from '../../services/userFunctions';
 
 const RegisterForm = () => {
+  const { setIsUserLogged } = useContext(AppContext);
   const [email, setEmail] = useState('');
   const [invalidAuth, setInvalidAuth] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
@@ -31,6 +33,8 @@ const RegisterForm = () => {
     if (valid && !user) {
       saveUser(name, email, password);
       setRedirect(true);
+      setIsUserLogged(true);
+      saveLoggedUser(email, password);
     } else {
       if (user) setUserAlreadyRegister(true);
     }

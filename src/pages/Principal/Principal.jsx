@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AppContext from '../../context/AppContext';
 import { getProductsByCategory } from '../../services/api';
+import { getLoggedUser } from '../../services/userFunctions';
 import Header from '../../components/Header';
 import ProductSkeleton from '../../components/ProductSkeleton';
 import Slider from '../../components/Slider';
@@ -9,12 +10,20 @@ import Footer from '../../components/Footer';
 import './index.css';
 
 const Principal = () => {
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, isUserLogged, setLoggedUser, setIsUserLogged } = useContext(AppContext);
   const [cars, setCars] = useState([]);
   const [personalCare, setPersonalCare] = useState([]);
   const [smartphones, setSmartphones] = useState([]);
   const [hasProducts, setHasProducts] = useState(false);
   const productsSkeleton = [];
+
+  useEffect(() => {
+    const logged = getLoggedUser();
+    if (logged) {
+      setIsUserLogged(true);
+      setLoggedUser(logged);
+    } else setIsUserLogged(false);
+  }, [isUserLogged, setIsUserLogged, setLoggedUser])
 
   for (let i = 0; i < 5; i += 1) {
     productsSkeleton.push(<ProductSkeleton key={ `product-skeleton-${i}` }/>);

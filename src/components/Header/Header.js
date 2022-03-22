@@ -1,19 +1,33 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AiFillHome } from 'react-icons/ai';
+import { AiFillHome, AiOutlineLogout } from 'react-icons/ai';
 import { BsFillPersonFill, BsFillMoonFill,
-  BsFillSunFill } from 'react-icons/bs';
+  BsFillSunFill, BsFillGearFill } from 'react-icons/bs';
 import AppContext from '../../context/AppContext';
 import Search from '../Search';
 import CartIcon from '../CartIcon';
+import { logout } from '../../services/userFunctions';
 import './index.css';
 
 const profileStyle = { color: 'white', fontSize: '40px' };
-const gearStyle = { color: 'white', fontSize: '20px' }
+const gearStyle = { color: 'rgb(80, 80, 80)', fontSize: '16px', margin: '0 5px' };
+const houseIconStyle = { color: 'white', fontSize: '20px' };
+
 const Header = () => {
-  const { darkMode, setDarkMode } = useContext(AppContext); 
+  const {
+    darkMode,
+    setDarkMode,
+    isUserLogged,
+    setIsUserLogged,
+    loggedUser,
+  } = useContext(AppContext); 
+
+  const makeLogout = () => {
+    logout();
+    setIsUserLogged(false);
+  }
   return (
-    <header>
+    <header className={ `${darkMode && 'header-darkmode'}` }>
       <section>
         {/* <div className="sidebar-container">
           <button type="button">
@@ -43,17 +57,41 @@ const Header = () => {
         <section className="profile">
           <button type="button">
             <BsFillPersonFill style={ profileStyle } />
-            <h3>Entrar</h3>
+            {
+              isUserLogged
+                ? <h3 className="name">{loggedUser.name}</h3>
+                : <h3>Entrar</h3>
+            }
           </button>
 
           <div className="profile-options">
-            <Link to="/authentication/login">
-              Fazer Login
-            </Link>
+            {
+              isUserLogged
+                ? (
+                    <>
+                      <Link to="/">
+                        <BsFillGearFill style={gearStyle} />
+                        Preferências
+                      </Link>
 
-            <Link to="/authentication/register">
-              Cadastre-se
-            </Link>       
+                      <button type="button" onClick={ makeLogout }>
+                        <AiOutlineLogout style={gearStyle} />
+                        Fazer logout
+                      </button>
+                    </>
+                  )
+                : (
+                  <>
+                    <Link to="/authentication/login">
+                      Fazer Login
+                    </Link>
+
+                    <Link to="/authentication/register">
+                      Cadastre-se
+                    </Link>       
+                  </>
+                )
+            }
           </div>
         </section>
 
@@ -78,7 +116,7 @@ const Header = () => {
       <nav className="navigation-links">
         <Search />
         <Link to="/">
-          <AiFillHome style={ gearStyle } />
+          <AiFillHome style={ houseIconStyle } />
         </Link>
 
         {/* <Link to="/search-products">

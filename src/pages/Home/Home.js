@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 import Categories from '../../components/Categories';
 import Header from '../../components/Header/Header';
+import Filters from '../../components/Filters';
 import ProductsContainer from '../../components/ProductsContainer';
 import './index.css';
 
@@ -15,6 +16,7 @@ const Home = () => {
       <Header />
       <div className="container">
         <div className="right">
+          <Filters />
           {
             hasSearch && (
               <ProductsContainer />

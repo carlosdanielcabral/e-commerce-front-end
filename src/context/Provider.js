@@ -7,6 +7,8 @@ const Provider = ({ children }) => {
   const [hasSearch, setHasSearch] = useState(false);
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState('');
+  const [isUserLogged, setIsUserLogged] = useState();
+  const [loggedUser, setLoggedUser] = useState({});
 
   const context = {
     category,
@@ -15,6 +17,10 @@ const Provider = ({ children }) => {
     setDarkMode,
     hasSearch,
     setHasSearch,
+    isUserLogged,
+    setIsUserLogged,
+    loggedUser,
+    setLoggedUser,
     products,
     setProducts,
     query,

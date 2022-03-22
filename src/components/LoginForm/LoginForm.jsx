@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import AppContext from '../../context/AppContext';
 import { Redirect } from 'react-router-dom';
-import { getUser } from '../../services/userFunctions';
+import { getUser, saveLoggedUser } from '../../services/userFunctions';
 
 const LoginForm = () => {
+  const { setIsUserLogged } = useContext(AppContext);
   const [email, setEmail] = useState('');
   const [invalidAuth, setInvalidAuth] = useState(false);
   const [password, setPassword] = useState('');
@@ -11,8 +13,11 @@ const LoginForm = () => {
   const authenticateUser = (e) => {
     e.preventDefault();
     const hasUser = getUser(email, password);
-    if (hasUser) setRedirect(true);
-    else setInvalidAuth(true);
+    if (hasUser) {
+      setRedirect(true);
+      setIsUserLogged(true);
+      saveLoggedUser(email, password)
+    } else setInvalidAuth(true);
   }
 
   if (redirect) return <Redirect to="/" />;

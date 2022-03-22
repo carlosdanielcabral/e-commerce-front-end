@@ -13,6 +13,7 @@ const Categories = () => {
     setCategory,
     darkMode,
   } = useContext(AppContext);
+
   const [categories, setCategories] = useState([]);
   const { push } = useHistory();
   const { pathname } = useLocation();
@@ -37,9 +38,13 @@ const Categories = () => {
     }
     setProducts(data.results);
     setHasSearch(true);
-    const selected = document.querySelector('.selected');
-    if (selected) {
-      selected.classList.remove(selected);
+    if (pathname.includes('products')) {
+      const selected = document.querySelector('.selected');
+      if (selected) {
+        selected.classList.remove('selected');
+      }
+      const marked = document.querySelector(`#${e.target.id}`);
+      marked.classList.add('selected');
     }
   }
 

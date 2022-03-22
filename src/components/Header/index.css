@@ -8,6 +8,10 @@ header {
   justify-content: space-between;
 }
 
+.header-darkmode {
+  box-shadow: 1px 1px 10px rgb(30, 30, 30);
+}
+
 header section {
   align-items: center;
   display: flex;
@@ -35,19 +39,54 @@ header .profile button {
 
 .profile button h3 {
   color: white;
+  font-size: 16px;
+}
+
+.profile button h3.name {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100px;
+}
+
+.profile button h3.name::-webkit-scrollbar {
+  background-color: inherit;
+  height: 1px;
 }
 
 .profile-options {
-  background-color: rgb(215, 215, 215, 0.8);
-  display: none;
+  align-items: center;
+  background-color: rgb(245, 245, 245, 0.8);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;  display: none;
+  flex-direction: column;
   height: 100px;
+  justify-content: center;
   position: absolute;
   min-width: 200px;
   z-index: 1;
 }
 
+.profile-options a, .profile-options button {
+  align-items: center;
+  border-bottom: 1px solid rgba(32, 49, 52, 0.2);
+  display: flex;
+  font-size: 15px;
+  justify-content: flex-start;
+  padding: 10px 0;
+  text-align: center;
+  width: 90%;
+}
+
+.profile-options a:hover, .profile-options button:hover {
+  color: rgb(90, 90, 90);
+}
+
+.profile-options a:last-child, .profile-options button {
+  border-bottom: none;
+}
+
 .profile:hover .profile-options {
-  display: block;
+  display: flex;
 }
 
 .sidebar {
