@@ -1,6 +1,7 @@
 .authentication-page {
   display: flex;
   flex-direction: row-reverse;
+  flex-wrap: wrap;
   justify-content: space-between;
   height: 100vh;
 }
@@ -78,4 +79,10 @@
   padding: 10px;
   margin: 10px;
   width: 150px;
+}
+
+@media  screen and (max-width: 600px) {
+  .authentication-page .left, .authentication-page .right {
+    width: 100vw;
+  }
 }

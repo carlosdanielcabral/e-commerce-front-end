@@ -91,14 +91,15 @@ header .profile button {
 }
 
 .sidebar {
-  background-color: rgb(38, 87, 97);
+  background-color: rgb(30, 30, 30);
   box-shadow: 1px 1px 5px 1px rgb(60, 60, 60);
   height: 100%;
   left: -100vw;
   position: absolute;
   top: 0;
   transition: 300ms;
-  width: 300px;
+  width: 80vw;
+  z-index: 1;
 }
 
 .sidebar-container {
@@ -110,8 +111,16 @@ header .profile button {
   border: none;
 }
 
-.sidebar-container button:focus + .sidebar {
+.sidebar.visible {
   left: 0;
+}
+
+.close-sidebar {
+  position: absolute;
+  right: 0;
+  color: white;
+  font-size: 26px;
+  padding: 10px 20px;
 }
 
 .profile-image {
@@ -146,8 +155,12 @@ header .profile button {
   padding: 0 10px;
 }
 
+.sidebar li:first-child {
+  border-top: none;
+}
+
 .sidebar li:last-child {
-  border-bottom: 1px solid rgb(32, 49, 52);
+  border-bottom: none;
 }
 
 h1 {
@@ -162,10 +175,16 @@ h1 {
 .navigation-links {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 header h1 {
   color: rgb(240, 240, 240);
+}
+
+.home-icon {
+  color: white;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -199,7 +218,15 @@ header h1 {
     width: 100%;
   }
 
+  .home-icon {
+    color: rgb(100, 100, 100);
+  }
+
   .cart-icon .material-icons {
     color: rgb(100, 100, 100);
+  }
+
+  .sidebar .cart-icon .material-icons {
+    color: white;
   }
 }

@@ -19,7 +19,7 @@ body {
 .principal-page-categories h2 {
   display: block;
   font-weight: 300;
-  margin: 50px auto;
+  margin: 20px auto;
 }
 
 .products-skeleton {
@@ -28,4 +28,10 @@ body {
 
 .principal-page-category {
   margin-bottom: 80px;
+}
+
+@media screen and (max-width: 600px) {
+  .principal-page-categories {
+    padding: 10px;
+  }
 }
