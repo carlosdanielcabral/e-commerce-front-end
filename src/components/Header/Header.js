@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AiFillHome, BsFillMoonFill,
+import { AiFillHome } from 'react-icons/ai';
+import { BsFillMoonFill,
   BsFillSunFill } from 'react-icons/bs';
 import AppContext from '../../context/AppContext';
 import Search from '../Search';
