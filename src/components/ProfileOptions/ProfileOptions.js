@@ -8,8 +8,6 @@ import { logout } from '../../services/userFunctions';
 
 const profileStyle = { color: 'white', fontSize: '40px' };
 const gearStyle = { color: 'rgb(80, 80, 80)', fontSize: '16px', margin: '0 5px' };
-const houseIconStyle = { color: 'white', fontSize: '20px' };
-const menuStyle = { color: 'white', fontSize: '26px' };
 
 const ProfileOptions = () => {
   const {

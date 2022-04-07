@@ -6,7 +6,6 @@ import { getUser, saveUser, saveLoggedUser } from '../../services/userFunctions'
 const RegisterForm = () => {
   const { setIsUserLogged } = useContext(AppContext);
   const [email, setEmail] = useState('');
-  const [invalidAuth, setInvalidAuth] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [invalidName, setInvalidName] = useState(false);
   const [invalidPassword, setInvalidPassword] = useState(false);
