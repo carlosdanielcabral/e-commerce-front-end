@@ -1,73 +1,69 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router';
+import React, { useContext, useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { BsSearch } from 'react-icons/bs';
+import AppContext from '../../context/AppContext';
+import { getProductsByQuery, getProductsFromCategoryAndQuery } from '../../services/api';
 import './index.css';
 
-class Search extends React.Component {
-  constructor() {
-    super();
+const style = { color: 'rgb(150, 150, 150)', fontSize: '20px' };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.redirect = this.redirect.bind(this);
+const Search = () => {
+  const {
+    category,
+    setHasSearch,
+    setProducts,
+    query,
+    setQuery,
+  } = useContext(AppContext);
 
-    this.state = {
-      inputValue: '',
-      redirect: false,
-    };
+  const [redirect, setRedirect] = useState(false);
+
+  const searchProducts = async (e) => {
+    e.preventDefault();
+    let data;
+    if (category) {
+      data = await getProductsFromCategoryAndQuery(category, query);
+    } else {
+      data = await getProductsByQuery(query);
+    }
+    setProducts(data.results);
+    setHasSearch(true);
+    setRedirect(true);
   }
 
-  handleChange(event) {
-    const { value, name } = event.target;
-    this.setState({ [name]: value });
-  }
-
-  redirect(event) {
-    event.preventDefault();
-    this.setState({ redirect: true });
-  }
-
-  render() {
-    const { inputValue, redirect } = this.state;
-    const { searchProducts, clearResults } = this.props;
-    if (redirect) return <Redirect to="/shopping-cart" />;
-    return (
-      <div className="search">
-        <form>
+  return (
+    <div className="search">
+      <form>
+        <div className="input-button-container">
           <input
             type="text"
-            value={ inputValue }
+            value={ query }
             name="inputValue"
             placeholder="Digite aqui"
-            onChange={ this.handleChange }
+            onChange={ (e) => setQuery(e.target.value) }
           />
 
           <button
             type="submit"
-            id={ inputValue }
             onClick={ searchProducts }
           >
-            Pesquisar
+            <BsSearch style={ style } className="search-icon" />
           </button>
-          <button
-            type="button"
-            onClick={ clearResults }
-            className="clear-results"
-          >
-            Limpar
-          </button>
-        </form>
-
-        <h2 data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </h2>
-      </div>
-    );
-  }
+        </div>
+        {/* <button
+          type="button"
+          onClick={ clearResults }
+          className="clear-results"
+        >
+          Limpar
+        </button> */}
+      </form>
+      { redirect && <Redirect to="/search-products" /> }
+      {/* <h2 data-testid="home-initial-message">
+        Digite algum termo de pesquisa ou escolha uma categoria.
+      </h2> */}
+    </div>
+  );
 }
-
-Search.propTypes = {
-  searchProducts: PropTypes.func.isRequired,
-  clearResults: PropTypes.func.isRequired,
-};
 
 export default Search;

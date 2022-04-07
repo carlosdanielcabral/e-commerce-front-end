@@ -2,17 +2,14 @@
   width: 600px;
   height: 400px;
 }
-.product-card {
-  align-items: center;
-  background-color: white;
-  box-shadow: 2px 2px 5px 2px rgb(210, 210, 210);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 420px;
-  justify-content: space-between;
-  margin: 15px;
-  width: 250px;
+
+.product-detail-page {
+  min-height: 100vh;
+}
+
+.product-detail-page.darkmode {
+  background-color: rgb(40, 40, 40);
+  color: white;
 }
 
 .container-flex {
