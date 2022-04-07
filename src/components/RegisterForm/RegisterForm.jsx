@@ -2,11 +2,12 @@ import React, { useContext, useState } from 'react';
 import AppContext from '../../context/AppContext';
 import { Redirect } from 'react-router-dom';
 import { getUser, saveUser, saveLoggedUser } from '../../services/userFunctions';
+// l
+
 
 const RegisterForm = () => {
   const { setIsUserLogged } = useContext(AppContext);
   const [email, setEmail] = useState('');
-  const [invalidAuth, setInvalidAuth] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [invalidName, setInvalidName] = useState(false);
   const [invalidPassword, setInvalidPassword] = useState(false);

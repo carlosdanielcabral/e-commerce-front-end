@@ -1,18 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AiFillHome, AiOutlineLogout, AiOutlineMenu } from 'react-icons/ai';
-import { BsFillPersonFill, BsFillMoonFill,
-  BsFillSunFill, BsFillGearFill } from 'react-icons/bs';
+import { AiFillHome, BsFillMoonFill,
+  BsFillSunFill } from 'react-icons/bs';
 import AppContext from '../../context/AppContext';
 import Search from '../Search';
 import CartIcon from '../CartIcon';
 import ProfileOptions from '../ProfileOptions/ProfileOptions';
 import Sidebar from '../Sidebar/Sidebar';
 import './index.css';
-
-const profileStyle = { color: 'white', fontSize: '40px' };
-const gearStyle = { color: 'rgb(80, 80, 80)', fontSize: '16px', margin: '0 5px' };
-const menuStyle = { color: 'white', fontSize: '26px' };
 
 const Header = () => {
   const { darkMode, setDarkMode } = useContext(AppContext)

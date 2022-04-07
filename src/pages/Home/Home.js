@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 import Categories from '../../components/Categories';
 import Header from '../../components/Header/Header';
-import Filters from '../../components/Filters';
 import ProductsContainer from '../../components/ProductsContainer';
 import './index.css';
 

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import {
   BsFillMoonFill,
@@ -10,12 +10,6 @@ import CartIcon from "../CartIcon";
 import ProfileOptions from "../ProfileOptions/ProfileOptions";
 // import "./index.css";
 
-const profileStyle = { color: "white", fontSize: "40px" };
-const gearStyle = {
-  color: "rgb(80, 80, 80)",
-  fontSize: "16px",
-  margin: "0 5px",
-};
 const menuStyle = { color: "white", fontSize: "26px" };
 
 const Sidebar = () => {

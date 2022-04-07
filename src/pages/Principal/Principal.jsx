@@ -12,7 +12,7 @@ import './index.css';
 const Principal = () => {
   const { darkMode, isUserLogged, setLoggedUser, setIsUserLogged } = useContext(AppContext);
   const [cars, setCars] = useState([]);
-  const [personalCare, setPersonalCare] = useState([]);
+  const [animals, setAnimals] = useState([]);
   const [smartphones, setSmartphones] = useState([]);
   const [hasProducts, setHasProducts] = useState(false);
   const productsSkeleton = [];
@@ -32,15 +32,15 @@ const Principal = () => {
   useEffect(() => {
     const getProducts = async () => {
       const cars = await getProductsByCategory('MLB5672');
-      const beauty = await getProductsByCategory('MLB1246');
+      const animals = await getProductsByCategory('MLB1071');
       const smartphonesData = await getProductsByCategory('MLB1051');
       setCars(cars.results);
-      setPersonalCare(beauty.results);
+      setAnimals(animals.results);
       setSmartphones(smartphonesData.results);
       setHasProducts(true);
     }
     getProducts();
-  }, [setCars, setPersonalCare, setSmartphones,setHasProducts]);
+  }, [setCars, setAnimals, setSmartphones,setHasProducts]);
 
   return (
     <div className={ `principal-page ${darkMode && 'darkmode'}`}>
@@ -58,10 +58,10 @@ const Principal = () => {
         </div>
 
         <div className="principal-page-category personal-care">
-          <h2>Beleza e cuidados pessoais</h2>
+          <h2>Animais</h2>
           {
             hasProducts
-              ? <Slider products={ personalCare } />
+              ? <Slider products={ animals } />
               : (
                   <div className="products-skeleton">
                     {productsSkeleton}
