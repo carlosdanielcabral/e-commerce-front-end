@@ -45,6 +45,7 @@ const Principal = () => {
   return (
     <div className={ `principal-page ${darkMode && 'darkmode'}`}>
       <Header />
+      <Categories />
 
       <div className="principal-page-categories">
         <div className="principal-page-category cars">
@@ -56,7 +57,6 @@ const Principal = () => {
           }
         </div>
 
-        <Categories />
         <div className="principal-page-category personal-care">
           <h2>Beleza e cuidados pessoais</h2>
           {

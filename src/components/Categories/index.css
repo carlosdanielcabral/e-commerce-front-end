@@ -48,7 +48,16 @@
   overflow-x: auto;
   flex-wrap: nowrap;
   padding: 20px 0;
-  width: 100vw;
+  margin: 0 20px;
+}
+
+.category {
+  flex-shrink: 0;
+}
+
+.principal-page .category {
+  background-color: rgb(100, 100, 100);
+  color: white;
 }
 
 .principal-page .categories:hover::-webkit-scrollbar-thumb {
@@ -65,19 +74,4 @@
 .principal-page .categories::-webkit-scrollbar-thumb {
   background-color: rgba(200, 200, 200, 0);
   border-radius: 20px;
-}
-
-.principal-page .category {
-  align-items: center;
-  background-color: rgb(136, 43, 43);
-  border-radius: 50%;
-  color: white;
-  display: flex;
-  flex-shrink: 0;
-  font-size: 18px;
-  height: 150px;
-  justify-content: center;
-  margin: 0 15px;
-  text-align: center;
-  width: 150px;
 }

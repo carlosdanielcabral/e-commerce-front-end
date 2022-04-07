@@ -16,7 +16,6 @@ const Home = () => {
       <Header />
       <div className="container">
         <div className="right">
-          <Filters />
           {
             hasSearch && (
               <ProductsContainer />
