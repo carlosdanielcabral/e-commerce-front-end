@@ -17,16 +17,19 @@ class CartIcon extends React.Component {
 
   render() {
     const { redirect } = this.state;
-    if (redirect) return <Redirect to="/shopping-cart" />;
     return (
-      <button
-        className="cart-icon"
-        type="button"
-        onClick={ this.redirect }
-      >
-        <h2 className="material-icons">shopping_cart</h2>
-      </button>
-
+      <>
+        <button
+          className="cart-icon"
+          type="button"
+          onClick={ this.redirect }
+        >
+          <h2 className="material-icons">shopping_cart</h2>
+        </button>
+        {
+          redirect && <Redirect to="/shopping-cart" />
+        }
+      </>
     );
   }
 }

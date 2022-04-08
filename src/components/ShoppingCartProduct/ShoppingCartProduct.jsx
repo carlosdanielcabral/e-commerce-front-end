@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsFillTrashFill } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import './index.css';
 
@@ -52,7 +53,7 @@ class ShoppingCartProduct extends React.Component {
             id={ id }
             className="remove-product-button"
           >
-            x
+            <BsFillTrashFill />
           </button>
         </section>
       </div>
