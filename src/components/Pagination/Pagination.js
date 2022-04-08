@@ -17,7 +17,7 @@ const Pagination = () => {
 
   const startIndex = (currentPage - 1) * 12;
 
-  let currentProducts = products.slice(startIndex,  startIndex + 11);
+  let currentProducts = products.slice(startIndex,  startIndex + 12);
 
   const selectPage = ({ target: { id } }) => {
     setCurrentPage(Number(id.substring(5)));
