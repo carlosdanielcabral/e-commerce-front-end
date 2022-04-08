@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 import Categories from '../../components/Categories';
 import Header from '../../components/Header/Header';
-import ProductsContainer from '../../components/ProductsContainer';
+import Pagination from '../../components/Pagination';
 import './index.css';
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
         <div className="right">
           {
             hasSearch && (
-              <ProductsContainer />
+              <Pagination />
             )
           }
         </div>
