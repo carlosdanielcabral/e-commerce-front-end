@@ -6,6 +6,7 @@ import AppContext from '../../context/AppContext';
 import { getProductById } from '../../services/api';
 import Header from '../../components/Header';
 import Gallery from '../../components/Gallery';
+import DetailsSkeleton from '../../components/DetailsSkeleton';
 import './index.css';
 
 const ProductDetail = () => {
@@ -44,7 +45,7 @@ const ProductDetail = () => {
       <div className={ `product-detail-page container ${darkMode && 'darkmode'}` }>
         {
           !hasProduct
-            ? 'Carregando...'
+            ? <DetailsSkeleton />
             : (
               <>
                 <h2>
