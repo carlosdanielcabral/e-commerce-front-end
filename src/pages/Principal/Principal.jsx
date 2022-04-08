@@ -53,7 +53,11 @@ const Principal = () => {
           {
             hasProducts
               ? <Slider products={ cars } />
-              : productsSkeleton
+              : (
+                <div className="products-skeleton">
+                  {productsSkeleton}
+                </div>
+              )
           }
         </div>
 
