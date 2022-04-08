@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import { getUser, saveUser, saveLoggedUser } from '../../services/userFunctions';
 // l
 
-
 const RegisterForm = () => {
   const { setIsUserLogged } = useContext(AppContext);
   const [email, setEmail] = useState('');
@@ -54,7 +53,7 @@ const RegisterForm = () => {
         value={ name }
       />
 
-      { invalidName && <span>Nome inválido! Digite pelo menos 3 caracteres</span> }
+      { invalidName && <span className='error'>Nome inválido! Digite pelo menos 3 caracteres</span> }
 
       <input
         onChange={ (e) => setEmail(e.target.value) }
@@ -63,7 +62,7 @@ const RegisterForm = () => {
         value={ email }
       />
 
-      { invalidEmail && <span>Email inválido!</span> }
+      { invalidEmail && <span className='error'>Email inválido!</span> }
 
       <input
         onChange={ (e) => setPassword(e.target.value) }
@@ -72,7 +71,7 @@ const RegisterForm = () => {
         value={ password }
       />
 
-      { invalidPassword && <span>Senha inválida! Digite pelo menos 6 caracteres.</span> }
+      { invalidPassword && <span className='error'>Senha inválida! Digite pelo menos 6 caracteres.</span> }
 
       <button
         onClick={ handleSubmit }
@@ -81,7 +80,7 @@ const RegisterForm = () => {
         Cadastrar
       </button>
 
-      { userAlreadyRegister && <span>Email já cadastrado!</span> }
+      { userAlreadyRegister && <span className='error'>Email já cadastrado!</span> }
     </form>
   </section>
   )
