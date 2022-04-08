@@ -38,7 +38,7 @@ class CheckoutPage extends React.Component {
             }
           </div>
 
-          <form>
+          <form className="checkout-form">
             <fieldset>
               <legend>Insira suas informações</legend>
               <label htmlFor="full-name">
