@@ -23,7 +23,11 @@ body {
 }
 
 .products-skeleton {
+  box-sizing: border-box;
   display: flex;
+  overflow: hidden;
+  margin: 0;
+  width: 93vw;
 }
 
 .principal-page-category {

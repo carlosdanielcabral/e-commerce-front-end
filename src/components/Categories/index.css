@@ -38,13 +38,6 @@
   /* border-left: 8px solid rgb(219, 190, 129); */
 }
 
-@media screen and (max-width: 900px) {
-  .categories {
-    border: none;
-    box-sizing: border-box;
-    width: 100vw;
-  }
-}
 
 .principal-page .categories {
   overflow-x: auto;
@@ -77,3 +70,16 @@
   background-color: rgba(200, 200, 200, 0);
   border-radius: 20px;
 }
+
+  @media screen and (max-width: 900px) {
+    .categories {
+      border: none;
+      box-sizing: border-box;
+      margin: 0;
+      width: 100vw;
+    }
+
+    .principal-page .categories {
+      margin: 0;
+    }
+  }
