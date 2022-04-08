@@ -30,12 +30,17 @@
 
 @media screen and (max-width: 900px) {
   .home-page .container {
+    box-sizing: border-box;
     flex-flow: row wrap;
     justify-content: center;
     flex-direction: column-reverse;
+    padding: 20px 0!important;
+    width: 100vw;
   }
 
   .home-page .left, .home-page .right {
+    box-sizing: border-box;
     width: 100vw;
+    padding: 0;
   }  
 }
