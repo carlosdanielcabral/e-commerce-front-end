@@ -25,7 +25,7 @@ class CheckoutPage extends React.Component {
               products.map((product) => (
                 <div key={ product.id } className="product-card">
                   <img src={ product.thumbnail } alt="Product" />
-                  <p>{ product.title }</p>
+                  <p className="product-title">{ product.title }</p>
                   <p>
                     {
                       product.price.toLocaleString('pr-br', {

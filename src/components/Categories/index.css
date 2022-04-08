@@ -39,7 +39,8 @@
 }
 
 
-.principal-page .categories {
+.principal-page .categories, .principal-page .categories.darkmode {
+  border-right: none!important;
   overflow-x: auto;
   flex-wrap: nowrap;
   padding: 20px 0;
@@ -80,6 +81,7 @@
     }
 
     .principal-page .categories {
+      border-right: none!important;
       margin: 0;
     }
   }

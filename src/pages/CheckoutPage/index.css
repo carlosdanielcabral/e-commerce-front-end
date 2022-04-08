@@ -6,7 +6,7 @@
 
 .purchase-summary .product-card {
   min-width: 250px;
-  height: 200px;
+  height: 230px;
   text-align: center;
 }
 
@@ -40,6 +40,11 @@
   font-size: 20px;
   color: rgb(50, 50, 50);
   font-weight: 300;
+}
+
+.checkout-page .product-card .product-title {
+  display: inline-block;
+  height: 30px!important;
 }
 
 @media screen and (max-width: 900px) {
