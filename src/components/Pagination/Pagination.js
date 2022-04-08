@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AppContext from '../../context/AppContext';
 import ProductsContainer from '../ProductsContainer';
+import './index.css';
 
 const Pagination = () => {
   const { products } = useContext(AppContext);
   const [currentPage, setCurrentPage] = useState(1);
 
   const numberOfPages = Math.ceil(products.length / 12);
-  console.log(`Number of pages: ${numberOfPages}\nProduct's length: ${products.length}`);
   const buttons = [];
   
   for (let i = 0; i < numberOfPages; i += 1) {
@@ -18,7 +18,14 @@ const Pagination = () => {
   const startIndex = (currentPage - 1) * 12;
 
   let currentProducts = products.slice(startIndex,  startIndex + 11);
-  console.log(currentProducts.length);
+
+  const selectPage = ({ target: { id } }) => {
+    setCurrentPage(Number(id.substring(5)));
+    const selected = document.querySelector('.page-selected');
+    if (selected) selected.classList.remove('page-selected')
+    const element = document.getElementById(id);
+    element.classList.add('page-selected');
+  }
 
   return (
     <>
@@ -28,8 +35,10 @@ const Pagination = () => {
           buttons.map((button) => (
             <button
               type="button"
+              className={ button === 1 && currentPage === 1 ? 'page-selected' : '' }
+              id={ `page-${button}` }
               key={ `page${button}` }
-              onClick={ () => setCurrentPage(button) }
+              onClick={ selectPage }
             >
               { button }
             </button>

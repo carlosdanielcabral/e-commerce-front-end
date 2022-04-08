@@ -32,6 +32,7 @@
   .home-page .container {
     flex-flow: row wrap;
     justify-content: center;
+    flex-direction: column-reverse;
   }
 
   .home-page .left, .home-page .right {
