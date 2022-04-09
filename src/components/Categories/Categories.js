@@ -10,6 +10,7 @@ const Categories = () => {
     setProducts,
     setHasSearch,
     query,
+    category,
     setCategory,
     darkMode,
   } = useContext(AppContext);
@@ -38,14 +39,6 @@ const Categories = () => {
     }
     setProducts(data.results);
     setHasSearch(true);
-    if (pathname.includes('products')) {
-      const selected = document.querySelector('.selected');
-      if (selected) {
-        selected.classList.remove('selected');
-      }
-      const marked = document.querySelector(`#${e.target.id}`);
-      marked.classList.add('selected');
-    }
   }
 
   return (
@@ -58,7 +51,7 @@ const Categories = () => {
                 type="button"
                 key={ id }
                 data-testid="category"
-                className={ `category` }
+                className={ `category ${category === id && 'selected'}` }
                 id={ id }
                 onClick={ selectCategory }
               >
@@ -70,7 +63,7 @@ const Categories = () => {
                 type="button"
                 key={ id }
                 data-testid="category"
-                className={ `category` }
+                className={ `category ${category === id && 'selected'}` }
                 id={ id }
                 onClick={ (e) => {
                   selectCategory(e) 
