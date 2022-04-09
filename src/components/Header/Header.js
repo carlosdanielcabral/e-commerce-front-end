@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillHome } from 'react-icons/ai';
-import { BsFillMoonFill,
-  BsFillSunFill } from 'react-icons/bs';
-import AppContext from '../../context/AppContext';
+// import { BsFillMoonFill,
+//   BsFillSunFill } from 'react-icons/bs';
+// import AppContext from '../../context/AppContext';
 import Search from '../Search';
 import CartIcon from '../CartIcon';
 import ProfileOptions from '../ProfileOptions/ProfileOptions';
@@ -11,17 +11,17 @@ import Sidebar from '../Sidebar/Sidebar';
 import './index.css';
 
 const Header = () => {
-  const { darkMode, setDarkMode } = useContext(AppContext)
+  // const { darkMode, setDarkMode } = useContext(AppContext)
 
   return (
-    <header className={ `${darkMode && 'header-darkmode'}` }>
+    <header>
       <section className="header-container">
         <Sidebar />
         <section className="logo">
           <h1>E-commerce</h1>
         </section>
         <section className="general-options">
-          <section className="darkmode">
+          {/* <section className="darkmode">
             <button
               type="button"
               onClick={ () => setDarkMode(!darkMode) }
@@ -32,7 +32,7 @@ const Header = () => {
                   : <BsFillSunFill />
               }
             </button>
-          </section>
+          </section> */}
           <ProfileOptions />
         </section>
       </section>

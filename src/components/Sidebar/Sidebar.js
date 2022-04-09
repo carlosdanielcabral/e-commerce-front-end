@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 // import { Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import {
-  BsFillMoonFill,
-  BsFillSunFill,
-} from "react-icons/bs";
-import AppContext from "../../context/AppContext";
+// import {
+//   BsFillMoonFill,
+//   BsFillSunFill,
+// } from "react-icons/bs";
+// import AppContext from "../../context/AppContext";
 import CartIcon from "../CartIcon";
 import ProfileOptions from "../ProfileOptions/ProfileOptions";
 // import "./index.css";
@@ -13,7 +13,7 @@ import ProfileOptions from "../ProfileOptions/ProfileOptions";
 const menuStyle = { color: "white", fontSize: "26px" };
 
 const Sidebar = () => {
-  const { darkMode, setDarkMode } = useContext(AppContext);
+  // const { darkMode, setDarkMode } = useContext(AppContext);
   const [isSidebarVisible, setIsSideBarVisible] = useState(false);
 
   return (
@@ -38,11 +38,11 @@ const Sidebar = () => {
               <ProfileOptions />
             </li>
 
-            <li className="darkmode">
+            {/* <li className="darkmode">
               <button type="button" onClick={() => setDarkMode(!darkMode)}>
                 {darkMode ? <BsFillMoonFill /> : <BsFillSunFill />}
               </button>
-            </li>
+            </li> */}
 
             <li>
               <CartIcon /> Meu carrinho
