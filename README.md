@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Este projeto foi baseado em um dos projetos avaliativos da Trybe, originalmente desenvolvido em equipe.
+Este projeto foi baseado em um dos projetos avaliativos da Trybe, que originalmente desenvolvido em equipe.
 
 ## Tecnologias utilizadas
 > React, CSS3, HTML5
