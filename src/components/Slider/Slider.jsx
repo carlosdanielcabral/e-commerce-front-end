@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import ProductCard from '../ProductCart';
 import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 import './index.css';
 
 const Slider = ({ products, id }) => {
-  const { darkMode } = useContext(AppContext);
 
   const scrollLeft = (e) => {
     const slider = document.getElementById(id);
