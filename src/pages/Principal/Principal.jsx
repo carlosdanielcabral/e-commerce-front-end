@@ -25,6 +25,10 @@ const Principal = () => {
     } else setIsUserLogged(false);
   }, [isUserLogged, setIsUserLogged, setLoggedUser])
 
+  useEffect(() => {
+    document.title="Home"
+  }, []);
+
   for (let i = 0; i < 5; i += 1) {
     productsSkeleton.push(<ProductSkeleton key={ `product-skeleton-${i}` }/>);
   }
@@ -52,7 +56,7 @@ const Principal = () => {
           <h2>Automoveis</h2>
           {
             hasProducts
-              ? <Slider products={ cars } />
+              ? <Slider products={ cars } id="automoveis" />
               : (
                 <div className="products-skeleton">
                   {productsSkeleton}
@@ -65,7 +69,7 @@ const Principal = () => {
           <h2>Animais</h2>
           {
             hasProducts
-              ? <Slider products={ animals } />
+              ? <Slider products={ animals } id="animais" />
               : (
                   <div className="products-skeleton">
                     {productsSkeleton}
@@ -78,7 +82,7 @@ const Principal = () => {
           <h2>Celulares e telefones</h2>
           {
             hasProducts
-              ? <Slider products={ smartphones } />
+              ? <Slider products={ smartphones } id="celulares" />
               : (
                   <div className="products-skeleton">
                     {productsSkeleton}

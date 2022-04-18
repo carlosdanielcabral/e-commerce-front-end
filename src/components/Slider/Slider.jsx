@@ -1,35 +1,52 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
+import ProductCard from '../ProductCart';
+import { AiOutlineCaretLeft, AiOutlineCaretRight } from "react-icons/ai";
 import './index.css';
 
-const Slider = ({ products }) => {
+const Slider = ({ products, id }) => {
   const { darkMode } = useContext(AppContext);
+
+  const scrollLeft = (e) => {
+    const slider = document.getElementById(id);
+    slider.scrollLeft = slider.scrollLeft - 200;
+  }
+
+  const scrollRight = (e) => {
+    const slider = document.getElementById(id);
+    slider.scrollLeft = slider.scrollLeft + 200;
+  }
+
   return (
-    <div className="slider">
+    <div className="slider" id={ id }>
+      <div className="buttons">
+        <button
+          type="button"
+          onClick={ scrollRight }
+          className="scrollRightButton"
+        >
+            <AiOutlineCaretRight />
+        </button>
+
+        <button
+          type="button"
+          onClick={ scrollLeft }
+          className="scrollLeftButton"
+        >
+            <AiOutlineCaretLeft />
+        </button>
+      </div>
       {
         products.map((product) => {
           return (
-            <div className={ `product ${darkMode && 'darkmode'}` } key={ product.id }>
-              <Link to={ `/product/${product.id}` } >
-                <div className="product-header">
-                  <img src={ product.thumbnail } alt={ product.title } />
-                </div>
-
-                <div className="product-title">
-                  <h3>{ product.title }</h3>
-                </div>
-
-                <div className="price">
-                  <h3>
-                    { product.price.toLocaleString('pt-br', {
-                      style: 'currency',
-                      currency: 'BRL',
-                    }) }
-                  </h3>
-                </div>
-              </Link>
-            </div>
+            <ProductCard
+              key={ `home-product-${product.id}` }
+              id={ product.id }
+              title={ product.title }
+              image={ product.thumbnail}
+              price={ product.price }
+            />
           );
         })
       }
